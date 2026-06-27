@@ -79,3 +79,23 @@ Visit http://localhost:3000 to use.
 npm run build
 npm run preview
 ```
+
+### Cloudflare Pages 部署 / Deploy to Cloudflare Pages
+
+| 配置项 | 值 |
+|---|---|
+| Framework preset | **None**（留空） |
+| Build command | `npm run build` |
+| Build output directory | `dist` |
+
+**环境变量：** 无需配置。
+
+### Vercel 部署 / Deploy to Vercel
+
+| 配置项 | 值 |
+|---|---|
+| Framework preset | **Vite** |
+| Build command | `npm run build`（自动填入） |
+| Build output directory | `dist`（自动填入） |
+
+**环境变量：** 无需配置。
