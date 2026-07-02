@@ -153,11 +153,11 @@ export default function App() {
     }
 
     return (
-        <div className="min-h-screen bg-neutral-100 flex items-center justify-center p-4 md:p-8 font-sans">
-            <div className="w-full max-w-7xl mx-4 bg-white shadow-xl rounded-lg border border-neutral-200 overflow-hidden flex flex-col max-h-[90vh]">
+        <div className="min-h-screen bg-neutral-100 font-sans">
+            <div className="w-full max-w-7xl mx-auto bg-white shadow-xl border border-neutral-200 overflow-hidden flex flex-col min-h-screen md:min-h-0 md:my-4 md:mx-auto md:rounded-lg md:max-h-[calc(100vh-2rem)]">
                 
                 {/* Header */}
-                <div className="bg-blue-600 text-white px-4 py-3 flex items-center space-x-2">
+                <div className="bg-blue-600 text-white px-4 py-3 flex items-center space-x-2 sticky top-0 z-10 shrink-0">
                     <Settings size={20} />
                     <h1 className="text-lg font-semibold tracking-wider">{t('header.title')}</h1>
                     <button
@@ -170,8 +170,8 @@ export default function App() {
                 </div>
 
                 {/* Settings Panel */}
-                <div className="p-5 border-b border-neutral-200 bg-neutral-50 shrink-0 overflow-y-auto">
-                    <div className="flex flex-col gap-y-2 text-sm text-neutral-700">
+                <div className="p-3 md:p-5 border-b border-neutral-200 bg-neutral-50 shrink-0 overflow-y-auto">
+                    <div className="flex flex-col gap-y-2 text-xs sm:text-sm text-neutral-700">
                         
                         {/* Row 1: Mode + Count + Columns + OpCount + HasParens */}
                         <div className="flex flex-wrap items-center gap-x-3 gap-y-1">
@@ -375,28 +375,28 @@ export default function App() {
                 </div>
 
                 {/* Action Bar */}
-                <div className="p-4 bg-neutral-100 border-t border-neutral-300 flex items-center justify-between shrink-0">
+                <div className="p-3 md:p-4 bg-neutral-100 border-t border-neutral-300 flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3 shrink-0">
                     <button 
                         onClick={handleGenerate}
                         disabled={isGenerating}
-                        className="bg-white hover:bg-neutral-50 text-neutral-800 border border-neutral-300 shadow-sm px-6 py-2.5 rounded-md font-medium transition flex items-center space-x-2 focus:ring-2 focus:ring-blue-500 outline-none disabled:opacity-50"
+                        className="bg-white hover:bg-neutral-50 text-neutral-800 border border-neutral-300 shadow-sm px-6 py-2.5 rounded-md font-medium transition flex items-center justify-center space-x-2 focus:ring-2 focus:ring-blue-500 outline-none disabled:opacity-50"
                     >
                         <Eye size={18} className="text-blue-600" />
                         <span>{isGenerating ? t('actions.generating') : t('actions.generate')}</span>
                     </button>
 
-                    <div className="flex items-center space-x-3">
-                        <label className="flex items-center space-x-1 cursor-pointer mr-2 border-r border-neutral-300 pr-4">
+                    <div className="flex flex-wrap items-center gap-2 sm:gap-3">
+                        <label className="flex items-center space-x-1 cursor-pointer sm:mr-2 border-r-0 sm:border-r sm:border-neutral-300 sm:pr-4">
                             <input type="checkbox" checked={showPrintTitle}
                                 onChange={e => { setShowPrintTitle(e.target.checked); setSettings(s => ({...s, count: e.target.checked ? 50 : 54})); }}
                                 className="w-4 h-4 text-blue-600 rounded" />
                             <span className="text-sm font-medium text-neutral-600">{t('actions.showTitle')}</span>
                         </label>
-                        <span className="text-sm text-neutral-500 mr-2">{t('actions.printOutput')}</span>
+                        <span className="text-sm text-neutral-500 hidden sm:inline">{t('actions.printOutput')}</span>
                         <button 
                             onClick={() => handlePrint('questions')}
                             disabled={problems.length === 0 || !problemsFresh || isGenerating}
-                            className="bg-blue-600 hover:bg-blue-700 text-white shadow-sm px-5 py-2.5 rounded-md font-medium transition flex items-center space-x-2 focus:ring-2 focus:ring-blue-500 outline-none disabled:opacity-50"
+                            className="bg-blue-600 hover:bg-blue-700 text-white shadow-sm px-4 sm:px-5 py-2 sm:py-2.5 rounded-md font-medium transition flex items-center justify-center space-x-2 focus:ring-2 focus:ring-blue-500 outline-none disabled:opacity-50"
                         >
                             <Printer size={18} />
                             <span>{t('actions.questions')}</span>
@@ -404,7 +404,7 @@ export default function App() {
                         <button 
                             onClick={() => handlePrint('answers')}
                             disabled={problems.length === 0 || !problemsFresh || isGenerating}
-                            className="bg-green-600 hover:bg-green-700 text-white shadow-sm px-5 py-2.5 rounded-md font-medium transition flex items-center space-x-2 focus:ring-2 focus:ring-green-500 outline-none disabled:opacity-50"
+                            className="bg-green-600 hover:bg-green-700 text-white shadow-sm px-4 sm:px-5 py-2 sm:py-2.5 rounded-md font-medium transition flex items-center justify-center space-x-2 focus:ring-2 focus:ring-green-500 outline-none disabled:opacity-50"
                         >
                             <Printer size={18} />
                             <span>{t('actions.answers')}</span>

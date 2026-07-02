@@ -1,5 +1,23 @@
 @import "tailwindcss";
 
+html, body, #root {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+@media (max-width: 640px) {
+    input[type="number"] {
+        -webkit-appearance: none;
+        appearance: none;
+    }
+    input[type="radio"],
+    input[type="checkbox"] {
+        width: 1.25rem;
+        height: 1.25rem;
+    }
+}
+
 @media print {
     @page { 
         margin: 1.5cm; 
