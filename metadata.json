@@ -1,0 +1,6 @@
+{
+  "name": "Math Problem Generator",
+  "description": "口算题生成器 - A mental math worksheet generator for elementary students. Supports integer, fraction, and mixed arithmetic with customizable difficulty.",
+  "requestFramePermissions": [],
+  "majorCapabilities": []
+}
